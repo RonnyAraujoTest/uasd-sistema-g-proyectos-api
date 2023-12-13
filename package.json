@@ -4,6 +4,7 @@
   "description": "Sistema Gestor de Proyectos de Investigacion",
   "main": "app.js",
   "scripts": {
+    "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "migrate": "knex migrate:latest",
     "seed:make": "knex seed:make",
