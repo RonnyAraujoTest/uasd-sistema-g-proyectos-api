@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 dotenv.config();
 
 const app = express();
@@ -9,6 +10,8 @@ const conn = require("../db/conn.js");
 
 const proyectosRoutes = require("../routes/proyectos.route.js");
 
+//midelware
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
