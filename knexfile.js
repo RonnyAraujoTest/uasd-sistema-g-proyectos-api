@@ -1,4 +1,5 @@
-// Update with your config settings.
+const dotenv = require("dotenv");
+dotenv.config();
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
