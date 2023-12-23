@@ -20,6 +20,7 @@ route.post("/proyectos", reportCheck(), async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
 
   let data = {
+    investigador_id: req.body.investigador_id,
     nombre: req.body.nombre,
     codigo: req.body.codigo,
     facultad: req.body.facultad,
@@ -49,8 +50,8 @@ route.get("/proyectos/:id", async (req, res) => {
   return registo.length != 0
     ? res.json(registo)
     : res
-        .status(404)
-        .json({ status: "Not Found", message: "registro no entontrado" });
+      .status(404)
+      .json({ status: "Not Found", message: "registro no entontrado" });
 });
 
 route.put("/proyectos/:id", reportCheck(), async (req, res) => {
