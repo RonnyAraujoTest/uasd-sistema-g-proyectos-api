@@ -69,4 +69,40 @@ const reportCheck = () => {
   ];
 };
 
-module.exports = { reportCheck };
+const searcherCheck = () => {
+  return [
+    body("nombre")
+      .trim()
+      .notEmpty()
+      .withMessage("Nombre requerido")
+      .isLength({ max: 10 })
+      .withMessage("Nombre no puede pasar de 10 caracteres"),
+    body("apellido")
+      .trim()
+      .notEmpty()
+      .withMessage("apellido requerido")
+      .isLength({ max: 45 }),
+    body("cedula")
+      .trim()
+      .notEmpty()
+      .withMessage("cedula requerido")
+      .isLength({ max: 70 }),
+    body("telefono")
+      .trim()
+      .notEmpty()
+      .withMessage("telefono requerido")
+      .isLength({ max: 80 }),
+    body("direccion")
+      .trim()
+      .notEmpty()
+      .withMessage("direccion requerido")
+      .isLength({ max: 245 }),
+    body("email")
+      .trim()
+      .notEmpty()
+      .withMessage("email requerido")
+      .isInt()
+  ];
+};
+
+module.exports = { reportCheck, searcherCheck };
