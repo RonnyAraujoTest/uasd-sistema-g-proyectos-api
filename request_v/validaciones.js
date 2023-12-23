@@ -2,6 +2,12 @@ const { body } = require("express-validator");
 
 const reportCheck = () => {
   return [
+    body("investigador_id")
+      .trim()
+      .notEmpty()
+      .withMessage("investigador_id requerido")
+      .isInt()
+      .withMessage("investigador_id no es un entero"),
     body("nombre")
       .trim()
       .notEmpty()
@@ -75,33 +81,38 @@ const searcherCheck = () => {
       .trim()
       .notEmpty()
       .withMessage("Nombre requerido")
-      .isLength({ max: 10 })
-      .withMessage("Nombre no puede pasar de 10 caracteres"),
+      .isLength({ max: 100 })
+      .withMessage("Nombre no puede pasar de 100 caracteres"),
     body("apellido")
       .trim()
       .notEmpty()
       .withMessage("apellido requerido")
-      .isLength({ max: 45 }),
+      .isLength({ max: 100 })
+      .withMessage("apellido no puede pasar de 100 caracteres"),
     body("cedula")
       .trim()
       .notEmpty()
       .withMessage("cedula requerido")
-      .isLength({ max: 70 }),
+      .isLength({ max: 14 })
+      .withMessage("cedula no puede pasar de 14 caracteres"),
     body("telefono")
       .trim()
       .notEmpty()
       .withMessage("telefono requerido")
-      .isLength({ max: 80 }),
+      .isLength({ max: 11 })
+      .withMessage("telefono no puede pasar de 11 caracteres"),
     body("direccion")
       .trim()
       .notEmpty()
       .withMessage("direccion requerido")
-      .isLength({ max: 245 }),
+      .isLength({ max: 250 })
+      .withMessage("direccion no puede pasar de 250 caracteres"),
     body("email")
       .trim()
       .notEmpty()
       .withMessage("email requerido")
-      .isInt()
+      .isLength({ max: 50 })
+      .withMessage("email no puede pasar de 50 caracteres")
   ];
 };
 
