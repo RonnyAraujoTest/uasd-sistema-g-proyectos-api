@@ -7,7 +7,7 @@ dotenv.config();
 module.exports = {
   production: {
     client: "pg", //mysql2
-    connection: `${process.env.DATABASE_URL}?ssl=true`,
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: "./db/migrations",
     },
@@ -18,7 +18,7 @@ module.exports = {
 
   development: {
     client: "pg",
-    connection: `${process.env.DATABASE_URL}?ssl=true`,
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: "./db/migrations",
     },
